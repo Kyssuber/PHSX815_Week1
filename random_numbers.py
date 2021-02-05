@@ -38,45 +38,45 @@ class Random:
         with np.errstate(over='ignore'):
             return (x + self.m_v)^self.m_w
         
-    #main function for this python code
-    if __name__ == "__main__":
-        #if the user includes the flag -h or --help, print the options
-        if '-h' in sys.argv or '--help' in sys.argv:
-            print("Usage: %s [-seed number]" % sys.argv[0])
-            print
-            sys.exit(1)
+#main function for this python code
+if __name__ == "__main__":
+    #if the user includes the flag -h or --help, print the options
+    if '-h' in sys.argv or '--help' in sys.argv:
+        print("Usage: %s [-seed number]" % sys.argv[0])
+        print
+        sys.exit(1)
             
-        #default seed
-        seed = 5555
+    #default seed
+    seed = 5555
     
-        if '-seed' in sys.argv:
-            p = sys.argv.index('-seed')
-            seed = sys.argv[p+1]
+    if '-seed' in sys.argv:
+        p = sys.argv.index('-seed')
+        seed = sys.argv[p+1]
         
-        #set random seed for numpy
-        np.random.seed(seed)
+    #set random seed for numpy
+    np.random.seed(seed)
     
-        #class instance of our Random class using seed
-        random = Random(seed)
+    #class instance of our Random class using seed
+    random = Random(seed)
     
-        #create some random data
-        N = 10000
+    #create some random data
+    N = 10000
     
-        #an array of random numbers from numpy
-        x = np.random.rand(N)    
+    #an array of random numbers from numpy
+    x = np.random.rand(N)    
         
-        #an array of random numbers using our Random class
-        myx = []
-        for i in range(0,N):
-            myx.append(random.rand())
+    #an array of random numbers using our Random class
+    myx = []
+    for i in range(0,N):
+        myx.append(np.random.rand())
     
-        #create histogram of data
-        n,bins,patches = plt.hist(myx,50,density=True,facecolor='g',alpha=0.75)
-        plt.xlabel('x')
-        plt.ylabel('Probability')
-        plt.title('Uniform Random Number',fontsize=14)
-        plt.grid()
+    #create histogram of data
+    n,bins,patches = plt.hist(myx,50,density=True,facecolor='g',alpha=0.75)
+    plt.xlabel('x')
+    plt.ylabel('Probability')
+    plt.title('Uniform Random Number',fontsize=14)
+    plt.grid()
         
-        plt.show()
+    plt.show()
     
 
