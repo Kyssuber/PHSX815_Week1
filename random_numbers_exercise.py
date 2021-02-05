@@ -12,6 +12,7 @@ import sys
 if __name__ == "__main__":
     if '-h' in sys.argv or '--help' in sys.argv:
         print("Usage: %s [-seed number]" % sys.argv[0])
+        print(".csv and .py must be in same directory; cd to said directory before running in terminal.")
         print
         sys.exit(1)
             
